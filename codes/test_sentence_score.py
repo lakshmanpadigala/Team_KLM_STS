@@ -28,8 +28,10 @@ from keras.models import load_model
 import tensorflow as tf
 nltk.download('punkt')
 
-# from google.colab import drive
-# drive.mount('/content/drive')
+from google.colab import drive
+drive.mount('/content/drive')
+
+language = input('Enter 1 for English 2 for spanish : ')
 
 word_to_index = dict()
 index_to_word = dict()
@@ -37,10 +39,12 @@ index = 1
 embed_dict = {}
 embed_dict['oov'] = np.zeros(300)
 
-best_model_path = '/content/drive/MyDrive/Colab Notebooks/Working/best_model_cnn.h5'
-glove_filepath = '/content/drive/MyDrive/Colab Notebooks/Working/glove.6B.300d.txt'
+glove_path = '/content/drive/MyDrive/Colab Notebooks/Working/glove.6B.300d.txt'
+spanish_glove_path = '/content/drive/MyDrive/Colab Notebooks/Working/SBW-vectors-300-min5.txt'
+if language == 2:
+  glove_path = spanish_glove_path
 
-with open(glove_filepath,'r') as f:  #/content/drive/MyDrive/NLP/glove.840B.300d.txt /content/drive/MyDrive/smai/glove/glove.6B.300d.txt
+with open(glove_path,'r') as f:  #/content/drive/MyDrive/NLP/glove.840B.300d.txt /content/drive/MyDrive/smai/glove/glove.6B.300d.txt
   for line in f:
     values = line.split(' ')
     word = values[0]
@@ -80,8 +84,11 @@ def generate_embedding_matrix(sentence):
     word_to_vec = pad_sequences(word_to_vec, maxlen=40, truncating='post', padding='post')
 
     # Initialize an empty matrix with shape (40, 300)
+    # if language == 1:
     embedding_matrix = np.zeros((40, 300))
-    
+    if language == 2:
+      embedding_matrix = np.zeros((80, 300))
+
     # Loop over the tokens and generate their embeddings
     for i, token in enumerate(word_to_vec[0]):
         embedding_matrix[i, :] = embed_dict[index_to_word[token]]
@@ -96,6 +103,9 @@ def _lossfunction(y_true,y_pred):
   var_pred = (ny_pred - my_pred)**2
   return -K.sum((ny_true-my_true)*(ny_pred-my_pred),axis=-1) / (K.sqrt(K.sum(var_true,axis=-1)*K.sum(var_pred,axis=-1)))
 
+best_model_path = '/content/drive/MyDrive/Colab Notebooks/Working/best_model_cnn.h5'
+if language == 2:
+  best_model_path = '/content/drive/MyDrive/Colab Notebooks/Working/spanish_best_model_cnn.h5'
 loaded_model = load_model(best_model_path,custom_objects={'_lossfunction': _lossfunction})
 
 inp1 = input('Enter first sentence:')

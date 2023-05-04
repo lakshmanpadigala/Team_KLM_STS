@@ -7,20 +7,20 @@
 
 ```
 
-├── 20-InterimSubmission
-│   ├── 20-Interim.pdf
-│   └── siamese.ipynb
+├── 20-Interim.pdf
+├── 20-Presentation Team KLM.pptx
 ├── 20-ProjectOutline.pdf
+├── 20-Team KLM-Project Report.pdf
 ├── codes
-│   ├── Baseline_1.ipynb
-│   ├── BaseModel_2.ipynb
+│   ├── Base_Model_1.ipynb
+│   ├── Base_Model_2.ipynb
 │   ├── siamese_english.ipynb
 │   ├── Spanish_STS_CNN.ipynb
 │   ├── STS_CNN.ipynb
 │   └── test_sentence_score.py
 └── README.md
 
-2 directories, 10 files
+1 directories, 11 files
 ``` 
 
 
@@ -39,8 +39,18 @@
 All models are upload in this [Spanish link](https://drive.google.com/file/d/1-EZcFDeQgpqy4HIvoWjd2E63Or1JKdt5/view?usp=sharing), [English Link](https://drive.google.com/file/d/1GhdhekOFUJ3nswXg_rxhzNmuc_0fAfNB/view?usp=sharing)
 > Our project [GitHub Link](https://github.com/lakshmanpadigala/Team_KLM_STS)
 
+> Embeddings Link
+    English GloVe.6B.300d.txt : [Link](https://drive.google.com/file/d/10X6vI3quS-EZ7mRDyKzgpl59aHEblY01/view?usp=sharing)
+    Spanish Word Embeddings : [Link](https://www.kaggle.com/datasets/rtatman/pretrained-word-vectors-for-spanish) 
+    
 > Running Script
 ```
 python3 test_sentence_score.py
 ```
+eg:
+    Enter 1 for English 2 for spanish : 1
+    Enter first sentence:There are dogs in the forest.​
+    Enter second sentence:The dogs are alone in the forest.​
+    STS Score Predicted: 3.7
+
 > Dataset Links for [English](https://drive.google.com/drive/folders/1JxJmeumM-0WZXbtLqJG-hHodt7Wj0bFm?usp=sharing),[Spanish](https://drive.google.com/drive/folders/1h9a52mIEBvADje-dsTnaZA4kqtEGwsL7?usp=sharing).
