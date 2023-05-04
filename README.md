@@ -47,10 +47,15 @@ All models are upload in this [Spanish link](https://drive.google.com/file/d/1-E
 ```
 python3 test_sentence_score.py
 ```
-eg:
-> Enter 1 for English 2 for spanish : 1
-> Enter first sentence:There are dogs in the forest.​
-> Enter second sentence:The dogs are alone in the forest.​
-> STS Score Predicted: 3.7
+Takes input for Language and then promts to Enter sentences.
+
+>eg:
+>>**Enter 1 for English 2 for spanish :** 1
+
+>>**Enter first sentence:** There are dogs in the forest.​
+
+>>**Enter second sentence:** The dogs are alone in the forest.​
+
+>>**STS Score Predicted:** 3.7
 
 > Dataset Links for [English](https://drive.google.com/drive/folders/1JxJmeumM-0WZXbtLqJG-hHodt7Wj0bFm?usp=sharing),[Spanish](https://drive.google.com/drive/folders/1h9a52mIEBvADje-dsTnaZA4kqtEGwsL7?usp=sharing).
